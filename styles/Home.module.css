@@ -34,17 +34,21 @@
   flex-grow: 1;
 }
 
-.title a {
+.link {
   color: #0070f3;
   text-decoration: none;
 }
 
-.title a:hover,
-.title a:focus,
-.title a:active {
+.link:hover,
+.link:focus,
+.link:active {
   text-decoration: underline;
+  filter: brightness(1.5);
 }
-
+.linkContainer {
+  display: flex;
+  justify-content: space-around;
+}
 .title {
   font-size: clamp(2rem, 0.4512rem + 2.4390vw, 4rem);
   text-align: center;

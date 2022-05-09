@@ -43,10 +43,22 @@ const Home = ({ data }: IData) => {
         <div>
           <h3 className={styles.title}>{data.title}</h3>
           <div className={styles.imageContainer}>
-          <Image className={styles.image} src={data.url} height={750} width={750} />
+            <Image
+              className={styles.image}
+              src={data.url}
+              height={750}
+              width={750}
+            />
           </div>
           <p className={styles.description}>{data.explanation}</p>
-          <a href={data.url}> View on NASA</a>
+          <div className={styles.linkContainer}>
+            <a className={styles.link} target="_blank" href={data.url}>
+              View on NASA
+            </a>
+            <a className={styles.link} target="_blank" href={data.hdurl}>
+              View in HD Resolution
+            </a>
+          </div>
         </div>
       </main>
 
