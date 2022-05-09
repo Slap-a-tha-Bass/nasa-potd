@@ -46,16 +46,27 @@ const Home = ({ data }: IData) => {
             <Image
               className={styles.image}
               src={data.url}
+              alt={data.title}
               height={750}
               width={750}
             />
           </div>
           <p className={styles.description}>{data.explanation}</p>
           <div className={styles.linkContainer}>
-            <a className={styles.link} target="_blank" href={data.url}>
+            <a
+              className={styles.link}
+              target="_blank"
+              rel="noreferrer"
+              href={data.url}
+            >
               View on NASA
             </a>
-            <a className={styles.link} target="_blank" href={data.hdurl}>
+            <a
+              className={styles.link}
+              target="_blank"
+              rel="noreferrer"
+              href={data.hdurl}
+            >
               View in HD Resolution
             </a>
           </div>
