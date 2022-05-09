@@ -49,23 +49,23 @@ const Home = ({ data }: IData) => {
         </a>
       </div>
       <main className={styles.main}>
-        <p>{`NASA POTD - ${formattedDate}`}</p>
+        <p>{`NASA ${data.media_type === "video" ? "VOTD" : "POTD"} - ${formattedDate}`}</p>
         <div>
           <h3 className={styles.title}>{data.title}</h3>
           <div className={styles.imageContainer}>
-            {data.url === "https://apod.nasa.gov/*" ? (
-              <Image
-                className={styles.image}
-                src={data.url}
-                alt={data.title}
-                height={750}
-                width={750}
-              />
-            ) : (
+            {data.media_type === "video" ? (
               <iframe
                 className={styles.image}
                 src={data.url}
                 title={data.title}
+                height={750}
+                width={750}
+              />
+            ) : (
+              <Image
+                className={styles.image}
+                src={data.url}
+                alt={data.title}
                 height={750}
                 width={750}
               />
@@ -81,14 +81,16 @@ const Home = ({ data }: IData) => {
             >
               View on NASA
             </a>
-            {data.url === "https://apod.nasa.gov/*" ? <a
-              className={styles.link}
-              target="_blank"
-              rel="noreferrer"
-              href={data.hdurl}
-            >
-              View in HD Resolution
-            </a> : null}
+            {data.media_type === "video" ? null : (
+              <a
+                className={styles.link}
+                target="_blank"
+                rel="noreferrer"
+                href={data.hdurl}
+              >
+                View in HD Resolution
+              </a>
+            )}
           </div>
         </div>
       </main>
