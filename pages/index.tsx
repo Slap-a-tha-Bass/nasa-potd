@@ -4,6 +4,7 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { BASE_URL, PRE_API, SUFFIX } from "../utils";
 import { format } from "date-fns";
+import { BsGithub, BsTwitter, BsLinkedin } from "react-icons/bs";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const response = await fetch(
@@ -37,7 +38,16 @@ const Home = ({ data }: IData) => {
         <meta name="color-scheme" content="dark" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+      <div className={styles.repoLinkContainer}>
+        <a
+          className={styles.link}
+          href="https://github.com/Slap-a-tha-Bass/nasa-potd"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Repo Link
+        </a>
+      </div>
       <main className={styles.main}>
         <p>{`NASA POTD - ${formattedDate}`}</p>
         <div>
@@ -74,8 +84,32 @@ const Home = ({ data }: IData) => {
       </main>
 
       <footer className={styles.footer}>
-        <p>Copyright 2022</p>
+        <a
+          className={styles.link}
+          href="https://github.com/Slap-a-tha-Bass"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <BsGithub size={24} />
+        </a>
+        <a
+          className={styles.link}
+          href="https://twitter.com/Slap_a_tha_Bass"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <BsTwitter size={24} />
+        </a>
+        <a
+          className={styles.link}
+          href="https://linkedin.com/in/corey-deloach"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <BsLinkedin size={24} />
+        </a>
       </footer>
+        <p className={styles.copyright}>Copyright © 2022</p>
     </div>
   );
 };

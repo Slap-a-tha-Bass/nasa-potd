@@ -18,6 +18,11 @@
   display: grid;
   place-items: center;
 }
+.repoLinkContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
 .footer {
   display: flex;
   flex: 1;
@@ -33,17 +38,23 @@
   align-items: center;
   flex-grow: 1;
 }
-
+.copyright {
+  text-align: center;
+  font-size: 0.8rem;
+}
 .link {
-  color: #0070f3;
+  background: -webkit-linear-gradient(rgb(0, 153, 255), rgb(119, 0, 255));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-decoration: none;
+  font-size: clamp(1rem, 0.4512rem + 2.4390vw, 2rem);
 }
 
 .link:hover,
 .link:focus,
 .link:active {
   text-decoration: underline;
-  filter: brightness(1.5);
+  color:rgb(0, 153, 255);
 }
 .linkContainer {
   display: flex;
@@ -52,16 +63,14 @@
 .title {
   font-size: clamp(2rem, 0.4512rem + 2.4390vw, 4rem);
   text-align: center;
+  background: -webkit-linear-gradient(45deg, rgb(0, 153, 255), rgb(119, 0, 255));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .description {
   font-size: clamp(1rem, 0.4512rem + 2.4390vw, 2rem);
-}
-
-.description {
-  margin: 4rem 0;
-  line-height: 1.5;
-  font-size: 1.5rem;
+  margin: 2rem 5vw;
 }
 
 .code {
