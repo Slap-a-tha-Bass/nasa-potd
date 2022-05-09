@@ -53,13 +53,23 @@ const Home = ({ data }: IData) => {
         <div>
           <h3 className={styles.title}>{data.title}</h3>
           <div className={styles.imageContainer}>
-            <Image
-              className={styles.image}
-              src={data.url}
-              alt={data.title}
-              height={750}
-              width={750}
-            />
+            {data.url === "https://apod.nasa.gov/*" ? (
+              <Image
+                className={styles.image}
+                src={data.url}
+                alt={data.title}
+                height={750}
+                width={750}
+              />
+            ) : (
+              <iframe
+                className={styles.image}
+                src={data.url}
+                title={data.title}
+                height={750}
+                width={750}
+              />
+            )}
           </div>
           <p className={styles.description}>{data.explanation}</p>
           <div className={styles.linkContainer}>
@@ -71,14 +81,14 @@ const Home = ({ data }: IData) => {
             >
               View on NASA
             </a>
-            <a
+            {data.url === "https://apod.nasa.gov/*" ? <a
               className={styles.link}
               target="_blank"
               rel="noreferrer"
               href={data.hdurl}
             >
               View in HD Resolution
-            </a>
+            </a> : null}
           </div>
         </div>
       </main>
@@ -109,7 +119,7 @@ const Home = ({ data }: IData) => {
           <BsLinkedin size={24} />
         </a>
       </footer>
-        <p className={styles.copyright}>Copyright © 2022</p>
+      <p className={styles.copyright}>Copyright © 2022</p>
     </div>
   );
 };
